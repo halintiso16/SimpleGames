@@ -14,7 +14,6 @@ def isValid():                              # Checks weather user input is valid
         if Validate is not None:
             return coordinate.replace('\\s+','')
         else:
-            print(Validate)
             print("Invalid Input: Please input valid integer coordinate positions seperated by a comma\n" +
                   "Coordinate position begin at 0,0 and ends at 2,2 \n" +
                   "Example of a valid coordinate position: 0,1\n\n")
