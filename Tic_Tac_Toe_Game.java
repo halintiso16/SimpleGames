@@ -32,19 +32,19 @@ public class Tic_Tac_Toe_Game {
                 GameArena[row][col] = Players[index];
                 if(turns >= 4) {
                     win = DetermineWin(GameArena, row, col);            // Calls another method to determine win after a win can occur
+                    if(win == true){                                    // Checks for a win
+                        System.out.println("Game: Win\n");
+                        System.out.println(Players[index] + " Won the Game\n");
+                        print(GameArena);
+                        break;
+                    }
+                    if(turns > 8){
+                        System.out.println("Game: Draw\n");
+                        print(GameArena);
+                        break;
+                    }
                 }
-                turns++;                                                // increments at each turn
-                if(win == true){                                        // Checks for a win
-                    System.out.println("Game: Win\n");
-                    System.out.println(Players[index] + " Won the game\n");
-                    print(GameArena);
-                    break;
-                }
-                if(turns > 8){
-                    System.out.println("Game: Draw\n");
-                    print(GameArena);
-                    break;
-                }
+                turns++;                                                            // increments at each turn
                 index = index < 1 ? 1 : 0;                                          // Makes the switch between players
             }
             else{
@@ -85,8 +85,8 @@ public class Tic_Tac_Toe_Game {
             boolean isValid = Pattern.matches(inputFormat,readInput);               //checks if user input aligns with rules
             if (!isValid) {
                 System.out.print("Invalid Input: Please input valid integer coordinate positions\n" +
-                    "Coordinate position begin at 0,0 and ends at 2,2 \n" +
-                    "Example of a valid coordinate position: 0,1\n\n$> ");
+                        "Coordinate position begin at 0,0 and ends at 2,2 \n" +
+                        "Example of a valid coordinate position: 0,1\n\n$> ");
             } else {
                 String NoSpaces = readInput.replaceAll("\\s+","");
                 String [] coordinate = NoSpaces.split(",");
@@ -97,11 +97,11 @@ public class Tic_Tac_Toe_Game {
 
     public static void GameObjective(){
         System.out.println("Objective: The object of Tic Tac Toe is to get three in a row.\n" +
-            "You play on a three by three game board. The first player is known as X and the second is 0.\n" +
-            "Players alternate placing Xs and 0s on the game board until either oppent has three in a " +
-            "row or all nine squares are filled.\nInput Direction: Input accepts integer coordinate positions seperated by a comma.\n" +
-            "The table begin at the origin 0,0 and ends at 2,2. Anything outside of these coordinate positions is considered invalid.\n" +
-            "EX of valid coordinate position: 0,2 | 1,1 | 2,1\n");
+                "You play on a three by three game board. The first player is known as X and the second is 0.\n" +
+                "Players alternate placing Xs and 0s on the game board until either oppent has three in a " +
+                "row or all nine squares are filled.\nInput Direction: Input accepts integer coordinate positions seperated by a comma.\n" +
+                "The table begin at the origin 0,0 and ends at 2,2. Anything outside of these coordinate positions is considered invalid.\n" +
+                "EX of valid coordinate position: 0,2 | 1,1 | 2,1\n");
 
         System.out.println("----------------------------------------------------------------------------\n");
     }
